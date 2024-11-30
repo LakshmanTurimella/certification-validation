@@ -1,0 +1,143 @@
+/* Global Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #6a1b9a, #ff6347); /* Soft gradient */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Main Container Styling */
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the container */
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Title Styling */
+h2 {
+    font-size: 32px;
+    color: #4B0082; /* Soft purple for title */
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Input Fields Styling */
+input, select {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #FF6347; /* Warm red border */
+    border-radius: 10px;
+    outline: none;
+    background-color: #f9f9f9; /* Light background */
+    transition: all 0.3s ease;
+}
+
+/* Focus effect for input fields */
+input:focus, select:focus {
+    border-color: #4B0082; /* Purple on focus */
+    box-shadow: 0 0 8px rgba(75, 0, 130, 0.5); /* Purple glow on focus */
+}
+
+/* Submit Button Styling */
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #4B0082; /* Purple */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #6A1B9A; /* Lighter purple on hover */
+    transform: translateY(-5px);
+}
+
+/* Output Box Styling */
+#output {
+    margin-top: 40px;
+    padding: 25px;
+    background: #F7F7F7; /* Light gray background */
+    border-radius: 12px;
+    border: 2px solid #FF6347; /* Red border */
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Fade-in animation for output */
+#output.fade-in {
+    opacity: 1;
+}
+
+/* Styling for Submitted Information */
+#submittedInfo {
+    text-align: left;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Success Message */
+.success {
+    color: #28a745; /* Green for success */
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Error Message */
+.error {
+    color: #dc3545; /* Red for error */
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design (Mobile-Friendly) */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    #submittedInfo {
+        font-size: 16px;
+    }
+}
