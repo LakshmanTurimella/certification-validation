@@ -10,21 +10,21 @@
     <div class="container">
         <h2>Certification Validation</h2>
         <form id="certificationForm">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="certificationName">Certification Name:</label>
-            <input type="text" id="certificationName" name="certificationName" required>
-
-            <label for="domain">Domain (e.g., Java, Python):</label>
-            <input type="text" id="domain" name="domain" required>
-
-            <button type="submit">Submit</button>
+            <input type="email" id="email" placeholder="Enter Your Email" required><br>
+            <input type="text" id="certificationName" placeholder="Enter Certification Name" required><br>
+            <select id="domain" required>
+                <option value="" disabled selected>Select Domain</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="AWS">AWS</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="React">React</option>
+            </select><br>
+            <button type="submit">Validate Certification</button>
         </form>
 
-        <div id="output" class="output">
-            <h3>Submitted Information:</h3>
-            <p id="submittedInfo"></p>
+        <div id="output" class="fade-in">
+            <div id="submittedInfo"></div>
         </div>
     </div>
 
