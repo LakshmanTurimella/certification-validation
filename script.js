@@ -1,73 +1,62 @@
-const validCertifications = [
-    { email: 'aarav.kumar@example.com', certificationName: 'Java Developer', domain: 'Java', internshipStatus: 'Completed', completionTime: 6 },
-    { email: 'diya.sharma@example.com', certificationName: 'Python Developer', domain: 'Python', internshipStatus: 'In Progress', completionTime: 4 },
-    { email: 'ishaan.verma@example.com', certificationName: 'Web Development', domain: 'JavaScript', internshipStatus: 'Not Started', completionTime: 3 },
-    { email: 'aanya.gupta@example.com', certificationName: 'Data Science', domain: 'Python', internshipStatus: 'Completed', completionTime: 8 },
-    { email: 'arjun.rao@example.com', certificationName: 'Java Developer', domain: 'Java', internshipStatus: 'Completed', completionTime: 6 },
-    { email: 'rhea.patel@example.com', certificationName: 'Python Developer', domain: 'Python', internshipStatus: 'In Progress', completionTime: 4 },
-    { email: 'kabir.singh@example.com', certificationName: 'Web Development', domain: 'JavaScript', internshipStatus: 'Not Started', completionTime: 3 },
-    { email: 'priya.joshi@example.com', certificationName: 'Data Science', domain: 'Python', internshipStatus: 'Completed', completionTime: 8 },
-    { email: 'vivaan.mehta@example.com', certificationName: 'Java Developer', domain: 'Java', internshipStatus: 'Completed', completionTime: 6 },
-    { email: 'saanvi.bhatia@example.com', certificationName: 'Python Developer', domain: 'Python', internshipStatus: 'In Progress', completionTime: 4 },
-    { email: 'shaurya.verma@example.com', certificationName: 'Web Development', domain: 'JavaScript', internshipStatus: 'Not Started', completionTime: 3 },
-    { email: 'meera.reddy@example.com', certificationName: 'Data Science', domain: 'Python', internshipStatus: 'Completed', completionTime: 8 },
-    { email: 'rohit.gupta@example.com', certificationName: 'Java Developer', domain: 'Java', internshipStatus: 'Completed', completionTime: 6 },
-    { email: 'siddharth.patel@example.com', certificationName: 'Python Developer', domain: 'Python', internshipStatus: 'In Progress', completionTime: 4 },
-    { email: 'tanvi.shah@example.com', certificationName: 'Web Development', domain: 'JavaScript', internshipStatus: 'Not Started', completionTime: 3 },
-    { email: 'karan.nair@example.com', certificationName: 'Data Science', domain: 'Python', internshipStatus: 'Completed', completionTime: 8 },
-    { email: 'naina.malik@example.com', certificationName: 'Java Developer', domain: 'Java', internshipStatus: 'Completed', completionTime: 6 },
-    { email: 'harsh.sharma@example.com', certificationName: 'Python Developer', domain: 'Python', internshipStatus: 'In Progress', completionTime: 4 },
-    { email: 'ananya.bhatt@example.com', certificationName: 'Web Development', domain: 'JavaScript', internshipStatus: 'Not Started', completionTime: 3 },
-    { email: 'amit.yadav@example.com', certificationName: 'Data Science', domain: 'Python', internshipStatus: 'Completed', completionTime: 8 }
+// Sample data for certification validation
+const certifications = [
+    { email: "ajay.kumar@example.com", certificationName: "AWS Certified Solutions Architect", domain: "AWS" },
+    { email: "priya.singh@example.com", certificationName: "Python for Data Science", domain: "Python" },
+    { email: "suresh.rao@example.com", certificationName: "Java SE 11 Developer", domain: "Java" },
+    { email: "divya.sharma@example.com", certificationName: "JavaScript Mastery", domain: "JavaScript" },
+    { email: "raj.murthy@example.com", certificationName: "React Developer Certification", domain: "React" },
+    { email: "krishna.patel@example.com", certificationName: "AWS Certified DevOps Engineer", domain: "AWS" },
+    { email: "neha.joshi@example.com", certificationName: "Oracle Certified Professional Java", domain: "Java" },
+    { email: "mohan.agarwal@example.com", certificationName: "Advanced Python Programming", domain: "Python" },
+    { email: "shiva.iyer@example.com", certificationName: "React.js Essentials", domain: "React" },
+    { email: "nisha.mishra@example.com", certificationName: "Mastering JavaScript", domain: "JavaScript" },
+    { email: "manoj.kumar@example.com", certificationName: "AWS Certified Developer", domain: "AWS" },
+    { email: "ravi.singh@example.com", certificationName: "Java Full Stack Developer", domain: "Java" },
+    { email: "sangeeta.das@example.com", certificationName: "React Native Developer", domain: "React" },
+    { email: "lokesh.ram@example.com", certificationName: "Python for Automation", domain: "Python" },
+    { email: "anil.pawar@example.com", certificationName: "JavaScript for Beginners", domain: "JavaScript" },
+    { email: "pooja.rathore@example.com", certificationName: "Java Web Developer", domain: "Java" },
+    { email: "devika.shukla@example.com", certificationName: "AWS Certified SysOps Administrator", domain: "AWS" },
+    { email: "sunil.kumar@example.com", certificationName: "React.js Advanced", domain: "React" },
+    { email: "tarun.soni@example.com", certificationName: "Java 8 Developer", domain: "Java" }
 ];
 
-// Initialize a counter to generate unique IDs
-let scannerIdCounter = 1001;
-let internIdCounter = 2001;
+// Validation function to check if certification exists
+function validateCertification(email, certificationName, domain) {
+    const result = certifications.find(cert => cert.email === email && cert.certificationName === certificationName && cert.domain === domain);
+    return result;
+}
 
-document.getElementById('certificationForm').addEventListener('submit', function(event) {
+// Handle form submission
+document.getElementById("certificationForm").addEventListener("submit", function(event) {
     event.preventDefault();
-
-    // Get user input
-    const email = document.getElementById('email').value;
-    const certificationName = document.getElementById('certificationName').value;
-    const domain = document.getElementById('domain').value;
-
-    // Check if the entered certification details match any in the predefined list
-    const validCertification = validCertifications.find(cert => {
-        return cert.email.toLowerCase() === email.toLowerCase() &&
-               cert.certificationName.toLowerCase() === certificationName.toLowerCase() &&
-               cert.domain.toLowerCase() === domain.toLowerCase();
-    });
-
-    // Output the result
-    let resultMessage = '';
-    if (validCertification) {
-        const scannerId = `SCAN${scannerIdCounter++}`;
-        const internId = `INTERN${internIdCounter++}`;
-
-        resultMessage = `
-            <strong>Email:</strong> ${email} <br>
-            <strong>Certification Name:</strong> ${certificationName} <br>
-            <strong>Domain:</strong> ${domain} <br>
-            <strong>Internship Status:</strong> ${validCertification.internshipStatus} <br>
-            <strong>Completion Time:</strong> ${validCertification.completionTime} months <br>
-            <strong>Intern ID:</strong> ${internId} <br>
-            <strong>Scanner ID:</strong> ${scannerId} <br>
-            <br>
-            <span class="success">Certification is valid!</span>
+    
+    const email = document.getElementById("email").value;
+    const certificationName = document.getElementById("certificationName").value;
+    const domain = document.getElementById("domain").value;
+    
+    const validationResult = validateCertification(email, certificationName, domain);
+    
+    const output = document.getElementById("output");
+    const submittedInfo = document.getElementById("submittedInfo");
+    
+    if (validationResult) {
+        // Success Case
+        submittedInfo.innerHTML = `
+            <div class="success">Certification Verified Successfully!</div>
+            <p><strong>Email:</strong> ${validationResult.email}</p>
+            <p><strong>Certification Name:</strong> ${validationResult.certificationName}</p>
+            <p><strong>Domain:</strong> ${validationResult.domain}</p>
+            <p><strong>Intern ID:</strong> INT${Math.floor(Math.random() * 1000) + 1}</p>
+            <p><strong>Scanner ID:</strong> SCN${Math.floor(Math.random() * 1000) + 1}</p>
         `;
+        output.classList.add("fade-in");
+        output.style.display = "block";
     } else {
-        resultMessage = `
-            <strong>Email:</strong> ${email} <br>
-            <strong>Certification Name:</strong> ${certificationName} <br>
-            <strong>Domain:</strong> ${domain} <br>
-            <br>
-            <span class="error">Invalid Certification Details!</span>
+        // Error Case
+        submittedInfo.innerHTML = `
+            <div class="error">Error: Certification not found. Please try again!</div>
         `;
+        output.style.display = "block";
     }
-
-    // Display the result
-    document.getElementById('submittedInfo').innerHTML = resultMessage;
-    document.getElementById('output').style.display = 'block';
 });
